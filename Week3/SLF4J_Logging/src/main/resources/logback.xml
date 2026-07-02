@@ -1,0 +1,24 @@
+<configuration>
+    <!--
+        Logback configuration file.
+        This controls how log messages are formatted and which levels are shown.
+        
+        We set the root level to DEBUG so we can see DEBUG, INFO, WARN, and ERROR messages.
+        TRACE is excluded by default since it's too verbose for most use cases.
+        Change the level to "TRACE" if you want to see everything.
+    -->
+
+    <!-- Console appender — writes log output to the terminal -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Format: timestamp [thread] LEVEL class - message -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <!-- Set level to DEBUG to see debug messages, or WARN to only see warnings and errors -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
